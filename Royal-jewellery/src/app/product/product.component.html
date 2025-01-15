@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROYAL</title>
+    <!-- fontawesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- custom css -->
+    <link rel = "stylesheet" href = "product.component.css">
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- navbar -->
+    <nav class = "navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top">
+        <div class = "container">
+            <a class = "navbar-brand d-flex justify-content-between align-items-center order-lg-0" href = "index.html">
+                <img src = "data:image/jpeg;base64,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" alt = "site icon">
+                <span class = "text-uppercase fw-lighter ms-2">ROYAL</span>
+            </a>
+
+            <div class = "order-lg-2 nav-btns">
+                <button type = "button" class = "btn position-relative">
+                    <i class = "fa fa-shopping-cart"></i>
+                    <span class = "position-absolute top-0 start-100 translate-middle badge bg-primary">5</span>
+                </button>
+                <button type = "button" class = "btn position-relative">
+                    <i class = "fa fa-heart"></i>
+                    <span class = "position-absolute top-0 start-100 translate-middle badge bg-primary">2</span>
+                </button>
+            </div>
+
+            <button class = "navbar-toggler border-0" type = "button" data-bs-toggle = "collapse" data-bs-target = "#navMenu">
+                <span class = "navbar-toggler-icon"></span>
+            </button>
+
+            <div class = "collapse navbar-collapse order-lg-1" id = "navMenu">
+                <ul class = "navbar-nav mx-auto text-center">
+                    <li class = "nav-item px-2 py-2">
+                        <a class = "nav-link text-uppercase text-dark" href = "#">HOME</a>
+                    </li>
+                    <li class = "nav-item px-2 py-2">
+                        <a class = "nav-link text-uppercase text-dark" href = "#">COLLECTIONS</a>
+                    </li>
+                    <li class = "nav-item px-2 py-2">
+                        <a class = "nav-link text-uppercase text-dark" href = "#">CATEGORIES</a>
+                    </li>
+                    <li class = "nav-item px-2 py-2">
+                        <a class = "nav-link text-uppercase text-dark" href = "#">SPECIAL COLLECTIONS</a>
+                    </li>
+                    <li class = "nav-item px-2 py-2">
+                        <a class = "nav-link text-uppercase text-dark" href = "#">ABOUT US</a>
+                    </li>
+                    <li class = "nav-item px-2 py-2 border-0">
+                        <a class = "nav-link text-uppercase text-dark" href = "#">POPULAR</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- end of navbar -->
+
+    <!-- header -->
+    <header id = "header" class = "vh-100 carousel slide" data-bs-ride = "carousel" style = "padding-top: 104px;">
+        <div class = "container h-100 d-flex align-items-center carousel-inner">
+            <div class = "text-center carousel-item active">
+                <h2 class = "text-capitalize text-white">DISCOVER</h2>
+                <h1 class = "text-uppercase py-2 fw-bold text-white">TIMELESS BEAUTY</h1>
+                <a href = "#" class = "btn mt-3 text-uppercase">shop now</a>
+            </div>
+            <div class = "text-center carousel-item">
+                <h2 class = "text-capitalize text-white">best price & offer</h2>
+                <h1 class = "text-uppercase py-2 fw-bold text-white">new season</h1>
+                <a href = "#" class = "btn mt-3 text-uppercase">buy now</a>
+            </div>
+        </div>
+
+        <button class = "carousel-control-prev" type = "button" data-bs-target="#header" data-bs-slide = "prev">
+            <span class = "carousel-control-prev-icon"></span>
+        </button>
+        <button class = "carousel-control-next" type = "button" data-bs-target="#header" data-bs-slide = "next">
+            <span class = "carousel-control-next-icon"></span>
+        </button>
+    </header>
+    <!-- end of header -->
+
+    <!-- collection -->
+    <section id = "collection" class = "py-5">
+        <div class = "container">
+            <div class = "title text-center">
+                <h2 class = "position-relative d-inline-block">New Collection</h2>
+            </div>
+
+            <div class = "row g-0">
+                <div class = "d-flex flex-wrap justify-content-center mt-5 filter-button-group">
+                    <button type = "button" class = "btn m-2 text-dark active-filter-btn" data-filter = "*">All</button>
+                    <button type = "button" class = "btn m-2 text-dark" data-filter = ".best">MEN</button>
+                    <button type = "button" class = "btn m-2 text-dark" data-filter = ".feat">WOMEN</button>
+                </div>
+
+                <div class = "collection-list mt-4 row gx-0 gy-3">
+                    <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
+                        <div class = "collection-img position-relative">
+                            <img src = "https://images.unsplash.com/photo-1689367436629-1d288f1e23b6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z29sZCUyMGpld2VsbGVyeXxlbnwwfHwwfHx8MA%3D%3D" class = "w-100">
+                        </div>
+                        <div class = "text-center">
+                            <div class = "rating mt-3">
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                            </div>
+                            <p class = "text-capitalize my-1">GOLD BRACELETTE</p>
+                            <span class = "fw-bold">RS.56000</span>
+                        </div>
+                    </div>
+
+                    <div class = "col-md-6 col-lg-4 col-xl-3 p-2 feat">
+                        <div class = "collection-img position-relative">
+                            <img src = "https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTZ8fERJQU1PTiUyMEpFV0VMTEVSWXxlbnwwfHwwfHx8MA%3D%3D" class = "w-100">
+                        </div>
+                        <div class = "text-center">
+                            <div class = "rating mt-3">
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                            </div>
+                            <p class = "text-capitalize my-1">GOLD EARRINGS</p>
+                            <span class = "fw-bold">RS.39999</span>
+                        </div>
+                    </div>
+
+                    <div class = "col-md-6 col-lg-4 col-xl-3 p-2 new">
+                        <div class = "collection-img position-relative">
+                            <img src = "https://plus.unsplash.com/premium_photo-1674748385691-a185ad303097?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTIxfHxESUFNT04lMjBKRVdFTExFUll8ZW58MHx8MHx8fDA%3D" class = "w-100">
+                        </div>
+                        <div class = "text-center">
+                            <div class = "rating mt-3">
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                            </div>
+                            <p class = "text-capitalize my-1">SILVER BRACELETTE</p>
+                            <span class = "fw-bold">RS.2999</span>
+                        </div>
+                    </div>
+
+                    <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
+                        <div class = "collection-img position-relative">
+                            <img src = "https://plus.unsplash.com/premium_photo-1681276169450-4504a2442173?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fEpFV0VMTEVSWXxlbnwwfHwwfHx8MA%3D%3D" class = "w-100">
+                        </div>
+                        <div class = "text-center">
+                            <div class = "rating mt-3">
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                            </div>
+                            <p class = "text-capitalize my-1">DIAMOND SET</p>
+                            <span class = "fw-bold">RS.2,99,999</span>
+                        </div>
+                    </div>
+
+                    <div class = "col-md-6 col-lg-4 col-xl-3 p-2 feat">
+                        <div class = "collection-img position-relative">
+                            <img src = "https://images.unsplash.com/photo-1581524475712-e43ca043e144?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDV8fEpFV0VMTEVSWXxlbnwwfHwwfHx8MA%3D%3D" class = "w-100">
+                        </div>
+                        <div class = "text-center">
+                            <div class = "rating mt-3">
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                            </div>
+                            <p class = "text-capitalize my-1">PLATINUM RINGS</p>
+                            <span class = "fw-bold">RS.3,99,999</span>
+                        </div>
+                    </div>
+
+                    <div class = "col-md-6 col-lg-4 col-xl-3 p-2 new">
+                        <div class = "collection-img position-relative">
+                            <img src = "https://images.unsplash.com/photo-1650453943832-dc4d8e26acd5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjE5fHxKRVdFTExFUll8ZW58MHx8MHx8fDA%3D" class = "w-100">
+                        </div>
+                        <div class = "text-center">
+                            <div class = "rating mt-3">
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                            </div>
+                            <p class = "text-capitalize my-1">GOLD CHAIN</p>
+                            <span class = "fw-bold">RS.72000</span>
+                        </div>
+                    </div>
+
+                    <div class = "col-md-6 col-lg-4 col-xl-3 p-2 best">
+                        <div class = "collection-img position-relative">
+                            <img src = "https://plus.unsplash.com/premium_photo-1681276170538-092ed3578648?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjF8fFBFQVJMJTIwQlJBQ0VMRVRURXxlbnwwfHwwfHx8MA%3D%3D" class = "w-100">
+                        </div>
+                        <div class = "text-center">
+                            <div class = "rating mt-3">
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                            </div>
+                            <p class = "text-capitalize my-1">PEARL BRACELETTE</p>
+                            <span class = "fw-bold">RS.39999</span>
+                        </div>
+                    </div>
+
+                    <div class = "col-md-6 col-lg-4 col-xl-3 p-2 feat">
+                        <div class = "collection-img position-relative">
+                            <img src = "https://images.unsplash.com/photo-1566977744263-79e677f4e7cf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fFJJTkdTfGVufDB8fDB8fHww" class = "w-100">
+                        </div>
+                        <div class = "text-center">
+                            <div class = "rating mt-3">
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                                <span class = "text-primary"><i class = "fas fa-star"></i></span>
+                            </div>
+                            <p class = "text-capitalize my-1">GOLD RING</p>
+                            <span class = "fw-bold">RS.57000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end of collection -->
+
+    <!-- special products -->
+    <section id = "special" class = "py-5">
+        <div class = "container">
+            <div class = "title text-center py-5">
+                <h2 class = "position-relative d-inline-block">CATEGORIES</h2>
+            </div>
+
+            <div class = "special-list row g-0 justify-content-center">
+
+                <div class = "col-md-6 col-lg-4 col-xl-3 p-2 justify-content-center">
+                    <div class = "special-img position-relative overflow-hidden">
+                        <img src = "https://images.unsplash.com/photo-1516063131707-07d5952d90cc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d29tZW4lMjBibGFjayUyMGFuZCUyMHdoaXRlfGVufDB8fDB8fHww" class = "w-100">
+                        <span class = "position-absolute d-flex align-items-center justify-content-center text-primary fs-4">
+                        
+                        </span>
+                    </div>
+                    <div class = "text-center">
+                        <p class = "text-capitalize mt-3 mb-1">FOR HER</p>
+                        <a href = "forher.component.html" class = "btn btn-primary mt-3">VIEW</a>
+                    </div>
+                </div>
+
+                <div class = "col-md-6 col-lg-4 col-xl-3 p-2">
+                    <div class = "special-img position-relative overflow-hidden">
+                        <img src = "https://images.unsplash.com/photo-1567601617142-366d870579a3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fG1lbiUyMHJpbmdzfGVufDB8fDB8fHww" class = "w-100">
+                        <span class = "position-absolute d-flex align-items-center justify-content-center text-primary fs-4">
+                        </span>
+                    </div>
+                    <div class = "text-center">
+                        <p class = "text-capitalize mt-3 mb-1">FOR HIM</p>
+                        <a href = "" class = "btn btn-primary mt-3">VIEW</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end of special products -->
+
+    <!-- blogs -->
+    <section id = "offers" class = "py-5">
+        <div class = "container">
+            <div class = "row d-flex align-items-center justify-content-center text-center justify-content-lg-start text-lg-start">
+                <div class = "offers-content">
+                    <span class = "text-white">Discount Up To 40%</span>
+                    <h2 class = "mt-2 mb-4 text-white">Grand Sale Offer!</h2>
+                    <a href = "#" class = "btn">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end of blogs -->
+
+    <!-- blogs -->
+    <section id = "blogs" class = "py-5">
+        <div class = "container">
+            <div class = "title text-center py-5">
+                <h2 class = "position-relative d-inline-block">Our Latest Blog</h2>
+            </div>
+
+            <div class = "row g-3">
+                <div class = "card border-0 col-md-6 col-lg-4 bg-transparent my-3">
+                    <img src = "" alt = "">
+                    <div class = "card-body px-0">
+                        <h4 class = "card-title">Lorem ipsum, dolor sit amet consectetur adipisicing</h4>
+                        <p class = "card-text mt-3 text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aspernatur repudiandae nostrum dolorem molestias odio. Sit fugit adipisci omnis quia itaque ratione iusto sapiente reiciendis, numquam officiis aliquid ipsam fuga.</p>
+                        <p class = "card-text">
+                            <small class = "text-muted">
+                                <span class = "fw-bold">Author: </span>John Doe
+                            </small>
+                        </p>
+                        <a href = "#" class = "btn">Read More</a>
+                    </div>
+                </div>
+
+                <div class = "card border-0 col-md-6 col-lg-4 bg-transparent my-3">
+                    <img src = "" alt = "">
+                    <div class = "card-body px-0">
+                        <h4 class = "card-title">Lorem ipsum, dolor sit amet consectetur adipisicing</h4>
+                        <p class = "card-text mt-3 text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aspernatur repudiandae nostrum dolorem molestias odio. Sit fugit adipisci omnis quia itaque ratione iusto sapiente reiciendis, numquam officiis aliquid ipsam fuga.</p>
+                        <p class = "card-text">
+                            <small class = "text-muted">
+                                <span class = "fw-bold">Author: </span>John Doe
+                            </small>
+                        </p>
+                        <a href = "#" class = "btn">Read More</a>
+                    </div>
+                </div>
+
+                <div class = "card border-0 col-md-6 col-lg-4 bg-transparent my-3">
+                    <img src = "" alt = "">
+                    <div class = "card-body px-0">
+                        <h4 class = "card-title">Lorem ipsum, dolor sit amet consectetur adipisicing</h4>
+                        <p class = "card-text mt-3 text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet aspernatur repudiandae nostrum dolorem molestias odio. Sit fugit adipisci omnis quia itaque ratione iusto sapiente reiciendis, numquam officiis aliquid ipsam fuga.</p>
+                        <p class = "card-text">
+                            <small class = "text-muted">
+                                <span class = "fw-bold">Author: </span>John Doe
+                            </small>
+                        </p>
+                        <a href = "#" class = "btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end of blogs -->
+
+    <!-- about us -->
+    <section id = "about" class = "py-5">
+        <div class = "container">
+            <div class = "row gy-lg-5 align-items-center">
+                <div class = "col-lg-6 order-lg-1 text-center text-lg-start">
+                    <div class = "title pt-3 pb-5">
+                        <h2 class = "position-relative d-inline-block ms-4">About Us</h2>
+                    </div>
+                    <p class = "lead text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, ipsam.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem fuga blanditiis, modi exercitationem quae quam eveniet! Minus labore voluptatibus corporis recusandae accusantium velit, nemo, nobis, nulla ullam pariatur totam quos.</p>
+                </div>
+                <div class = "col-lg-6 order-lg-0">
+                    <img src = "" alt = "" class = "img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end of about us -->
+
+    <!-- popular -->
+    <section id = "popular" class = "py-5">
+        <div class = "container">
+            <div class = "title text-center pt-3 pb-5">
+                <h2 class = "position-relative d-inline-block ms-4">Popular Of This Year</h2>
+            </div>
+
+            <div class = "row">
+                <div class = "col-md-6 col-lg-4 row g-3">
+                    <h3 class = "fs-5">Top Rated</h3>
+                    <div class = "d-flex align-items-start justify-content-start">
+                        <img src = "" alt = "" class = "img-fluid pe-3 w-25">
+                        <div>
+                            <p class = "mb-0">Blue Shirt</p>
+                            <span>$ 20.00</span>
+                        </div>
+                    </div>
+                    <div class = "d-flex align-items-start justify-content-start">
+                        <img src = "" alt = "" class = "img-fluid pe-3 w-25">
+                        <div>
+                            <p class = "mb-0">Blue Shirt</p>
+                            <span>$ 20.00</span>
+                        </div>
+                    </div>
+                    <div class = "d-flex align-items-start justify-content-start">
+                        <img src = "" alt = "" class = "img-fluid pe-3 w-25">
+                        <div>
+                            <p class = "mb-0">Blue Shirt</p>
+                            <span>$ 20.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "col-md-6 col-lg-4 row g-3">
+                    <h3 class = "fs-5">Best Selling</h3>
+                    <div class = "d-flex align-items-start justify-content-start">
+                        <img src = "" alt = "" class = "img-fluid pe-3 w-25">
+                        <div>
+                            <p class = "mb-0">Blue Shirt</p>
+                            <span>$ 20.00</span>
+                        </div>
+                    </div>
+                    <div class = "d-flex align-items-start justify-content-start">
+                        <img src = "" alt = "" class = "img-fluid pe-3 w-25">
+                        <div>
+                            <p class = "mb-0">Blue Shirt</p>
+                            <span>$ 20.00</span>
+                        </div>
+                    </div>
+                    <div class = "d-flex align-items-start justify-content-start">
+                        <img src = "" alt = "" class = "img-fluid pe-3 w-25">
+                        <div>
+                            <p class = "mb-0">Blue Shirt</p>
+                            <span>$ 20.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "col-md-6 col-lg-4 row g-3">
+                    <h3 class = "fs-5">On Sale</h3>
+                    <div class = "d-flex align-items-start justify-content-start">
+                        <img src = "" alt = "" class = "img-fluid pe-3 w-25">
+                        <div>
+                            <p class = "mb-0">Blue Shirt</p>
+                            <span>$ 20.00</span>
+                        </div>
+                    </div>
+                    <div class = "d-flex align-items-start justify-content-start">
+                        <img src = "" alt = "" class = "img-fluid pe-3 w-25">
+                        <div>
+                            <p class = "mb-0">Blue Shirt</p>
+                            <span>$ 20.00</span>
+                        </div>
+                    </div>
+                    <div class = "d-flex align-items-start justify-content-start">
+                        <img src = "" alt = "" class = "img-fluid pe-3 w-25">
+                        <div>
+                            <p class = "mb-0">Blue Shirt</p>
+                            <span>$ 20.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end of popular -->
+
+    <!-- newsletter -->
+    <section id = "newsletter" class = "py-5">
+        <div class = "container">
+            <div class = "d-flex flex-column align-items-center justify-content-center">
+                <div class = "title text-center pt-3 pb-5">
+                    <h2 class = "position-relative d-inline-block ms-4">Newsletter Subscription</h2>
+                </div>
+
+                <p class = "text-center text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus rem officia accusantium maiores quisquam dolorum?</p>
+                <div class = "input-group mb-3 mt-3">
+                    <input type = "text" class = "form-control" placeholder="Enter Your Email ...">
+                    <button class = "btn btn-primary" type = "submit">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end of newsletter -->
+
+    <!-- footer -->
+    <footer class = "bg-dark py-5">
+        <div class = "container">
+            <div class = "row text-white g-4">
+                <div class = "col-md-6 col-lg-3">
+                    <a class = "text-uppercase text-decoration-none brand text-white" href = "product.component.html">Attire</a>
+                    <p class = "text-white text-muted mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum mollitia quisquam veniam odit cupiditate, ullam aut voluptas velit dolor ipsam?</p>
+                </div>
+
+                <div class = "col-md-6 col-lg-3">
+                    <h5 class = "fw-light">Links</h5>
+                    <ul class = "list-unstyled">
+                        <li class = "my-3">
+                            <a href = "#" class = "text-white text-decoration-none text-muted">
+                                <i class = "fas fa-chevron-right me-1"></i> Home
+                            </a>
+                        </li>
+                        <li class = "my-3">
+                            <a href = "#" class = "text-white text-decoration-none text-muted">
+                                <i class = "fas fa-chevron-right me-1"></i> Collection
+                            </a>
+                        </li>
+                        <li class = "my-3">
+                            <a href = "#" class = "text-white text-decoration-none text-muted">
+                                <i class = "fas fa-chevron-right me-1"></i> Blogs
+                            </a>
+                        </li>
+                        <li class = "my-3">
+                            <a href = "#" class = "text-white text-decoration-none text-muted">
+                                <i class = "fas fa-chevron-right me-1"></i> About Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class = "col-md-6 col-lg-3">
+                    <h5 class = "fw-light mb-3">Contact Us</h5>
+                    <div class = "d-flex justify-content-start align-items-start my-2 text-muted">
+                        <span class = "me-3">
+                            <i class = "fas fa-map-marked-alt"></i>
+                        </span>
+                        <span class = "fw-light">
+                            Albert Street, New York, AS 756, United States of America
+                        </span>
+                    </div>
+                    <div class = "d-flex justify-content-start align-items-start my-2 text-muted">
+                        <span class = "me-3">
+                            <i class = "fas fa-envelope"></i>
+                        </span>
+                        <span class = "fw-light">
+                            attire.support.com
+                        </span>
+                    </div>
+                    <div class = "d-flex justify-content-start align-items-start my-2 text-muted">
+                        <span class = "me-3">
+                            <i class = "fas fa-phone-alt"></i>
+                        </span>
+                        <span class = "fw-light">
+                            +9786 6776 236
+                        </span>
+                    </div>
+                </div>
+
+                <div class = "col-md-6 col-lg-3">
+                    <h5 class = "fw-light mb-3">Follow Us</h5>
+                    <div>
+                        <ul class = "list-unstyled d-flex">
+                            <li>
+                                <a href = "#" class = "text-white text-decoration-none text-muted fs-4 me-4">
+                                    <i class = "fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href = "#" class = "text-white text-decoration-none text-muted fs-4 me-4">
+                                    <i class = "fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href = "#" class = "text-white text-decoration-none text-muted fs-4 me-4">
+                                    <i class = "fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href = "#" class = "text-white text-decoration-none text-muted fs-4 me-4">
+                                    <i class = "fab fa-pinterest"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end of footer -->
+</body>
+</html>
